@@ -19,7 +19,7 @@ local load_mp_file = G.ARENA.load_mp_file
 
 load_mp_file("Jokers.lua")
 
-if SMODS.Mods["VirtualizedMultiplayer"] and SMODS.Mods["VirtualizedMultiplayer"].can_load then --Checks if CiaB can run
+if SMODS.Mods["Multiplayer"] and SMODS.Mods["Multiplayer"].can_load then --Checks if CiaB can run
 	load_mp_file("Multiplayer_Jokers.lua")
 else
 	sendDebugMessage("Cannot find Multiplayer, either there is an issue with Core.lua or the Multiplayer Mod is missing. Multiplayer Jokers for Arena will be disabled.")
