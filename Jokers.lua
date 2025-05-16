@@ -18,7 +18,7 @@ SMODS.Joker ({
 		},
 },
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = true,
@@ -63,7 +63,7 @@ SMODS.Joker({
 		}
 	},
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = true,
@@ -84,6 +84,7 @@ SMODS.Joker({
 						G.deck.config.card_limit = G.deck.config.card_limit + 1
 						table.insert(G.playing_cards, card)
 						G.hand:emplace(card)
+						SMODS.calculate_context({playing_card_added = true, cards = {card}})
 						return true end }))
 				return true end
 			return true end }))
@@ -114,7 +115,7 @@ SMODS.Joker({
     rarity = 1,
     cost = 5,
     unlocked = true,
-    discovered = false,
+    discovered = true,
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
@@ -155,7 +156,7 @@ text = {
 }
 	},
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     blueprint_compat = true,
     pos = { x = 0, y = 0 },
     config = { extra = { mult = 2 } },
@@ -197,7 +198,7 @@ SMODS.Joker{
 		},
 	},
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'dizzy_joker',
     blueprint_compat = true,
     pos = { x = 0, y = 0 },
@@ -273,7 +274,7 @@ SMODS.Joker({
 		}
 	},
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = true,
@@ -339,7 +340,7 @@ SMODS.Joker({
 		}
 	},
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = true,
@@ -388,7 +389,7 @@ SMODS.Joker({
 			"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
 		}
 	},
-    discovered = false,
+    discovered = true,
 	unlocked = true,
     blueprint_compat = true,
     pos = { x = 0, y = 0 },
@@ -445,7 +446,7 @@ SMODS.Joker({
 		}
 	},
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     blueprint_compat = true,
     pos = { x = 0, y = 0 },
     config = { extra = { x_mult = 1, bonus = 0.1 } },
@@ -493,7 +494,7 @@ SMODS.Joker({
 	},
     cost = 6,
     unlocked = true,
-    discovered = false,
+    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
@@ -532,7 +533,7 @@ SMODS.Joker({
 			}
 	},
     unlocked = true,
-    discovered = false,
+    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
@@ -577,7 +578,7 @@ SMODS.Joker ({
 			},
 	},
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = true,
@@ -620,7 +621,7 @@ SMODS.Joker{
 	},
     cost = 8,
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'censorship',
     blueprint_compat = true,
     pos = { x = 0, y = 0 },
@@ -674,7 +675,7 @@ SMODS.Joker{
 		},
 	},
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'the_jackler',
     blueprint_compat = true,
     pos = { x = 0, y = 0 },
@@ -730,7 +731,7 @@ text = {"Played {C:attention}Steel Cards{}",
 },
 	},
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = true,
@@ -776,7 +777,7 @@ SMODS.Joker ({
 	}
 	},
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
@@ -821,7 +822,7 @@ SMODS.Joker{
     rarity = 3,
 	cost = 9,
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'iou',
 	loc_txt = {
 		name = "I.O.U",
@@ -883,7 +884,7 @@ SMODS.Joker{
     key = 'aces_high',
     rarity = 2,
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'aces_high',
     cost = 7,
 	loc_txt ={
@@ -953,7 +954,7 @@ SMODS.Joker{
     key = 'aces_bias',
     rarity = 2,
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'aces_bias',
     cost = 7,
 	loc_txt = {
@@ -1022,7 +1023,7 @@ SMODS.Atlas({
 
 SMODS.Joker{
     key = 'broken_record',
-    rarity = 1,
+    rarity = 2,
 	unlocked = true,
     discovered = false,
     atlas = 'broken_record',
@@ -1087,7 +1088,7 @@ SMODS.Atlas({
 
 SMODS.Joker{
     key = 'bootleg',
-    rarity = 1,
+    rarity = 2,
 	unlocked = true,
     discovered = false,
     atlas = 'bootleg',
@@ -1097,16 +1098,18 @@ SMODS.Joker{
 		text = {
 			"Turns all {C:attention}scored cards{} into the first",
 			"scored Ace of Diamonds after scoring",
-			"Retriggers all {C:attention}Aces{}"
+			"Retriggers all {C:attention}Aces{}",
+			"Has a {C:green}#2# in #3#{} chance of",
+			"being destroyed at the end of round"
 		},
 	},
     blueprint_compat = true,
     eternal_compat = true,
     pos = { x = 0, y = 0 },
-    config = { extra = {repetitions = '1'} },
+    config = { extra = {repetitions = '1', odds = '9'} },
 	yes_pool_flag = 'scratched',
     loc_vars = function(self, info_queue, card)
-        return { vars = {card.ability.extra.repetitions} }
+        return { vars = {card.ability.extra.repetitions, (G.GAME.probabilities.normal or 1), card.ability.extra.odds} }
     end,
 	set_ability = function(self, card, initial, delay_sprites)
 		local W,H = card.T.w, card.T.h
@@ -1153,8 +1156,37 @@ SMODS.Joker{
 				}
 			end
 		end
+		if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
+			if pseudorandom('bootleg') < G.GAME.probabilities.normal/card.ability.extra.odds then 
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						play_sound('tarot1')
+						card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Broken!' })
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
+							func = function()
+									G.jokers:remove_card(card)
+									card:remove()
+									card = nil
+								return true; end}))
+							G.GAME.pool_flags.scratched = true
+						return true
+					end
+				})) 
+			end
+		end
 	end
 }
+
+SMODS.Atlas({
+    key = "raise",
+    path = "j_raise.png",
+    px = 71,
+    py = 95,
+})
 
 SMODS.Atlas({
     key = "raise",
@@ -1177,7 +1209,7 @@ SMODS.Joker{
 			"Gives {X:mult,C:white}X#1#{} Mult",
 			"Gains {X:mult,C:white}X#2#{} Mult per round",
 			"{C:green}#4# in #3#{} chance to be destroyed",
-			"Odds of destruction increase after each played round",
+			"Odds of destruction increase after each round",
 			"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)"
 		},
 	},
@@ -1231,6 +1263,17 @@ no_pool_flag = 'raise',
 				}
 			end
 		end
+		if context.skip_blind and not context.blueprint then
+			if card.ability.extra.odds > 1 then
+				card.ability.extra.odds = card.ability.extra.odds - 1
+				return true
+			end
+			return {
+				extra = {message = 'NEXT!!!', colour = G.C.MULT},
+				colour = G.C.MULT,
+				card = card
+			}
+		end
     end,
 }
 
@@ -1245,7 +1288,7 @@ SMODS.Joker{
     key = 'all_in',
     rarity = 3,
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'all_in',
     cost = 8,
 	loc_txt = {
@@ -1296,7 +1339,7 @@ SMODS.Joker{
     key = 'slumbering_dragon',
     rarity = 4,
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'slumbering_dragon',
 	loc_txt = {
 		name = "Slumbering Dragon",
@@ -1370,7 +1413,7 @@ SMODS.Joker{
     key = 'vyse_the_dreadwyrm',
     rarity = 4,
 	unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'vyse_the_dreadwyrm',
     cost = 20,
     blueprint_compat = true,
@@ -1479,7 +1522,7 @@ SMODS.Joker{
 	cost = 6,
 	no_pool_flag = "sir_hams_bacon",
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = false,
 	eternal_compat = true,
 	cost_mult = 1.0,
@@ -1565,7 +1608,7 @@ SMODS.Joker{
 	cost = 5,
 	yes_pool_flag = "sir_hams_bacon",
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = false,
 	eternal_compat = true,
 	cost_mult = 1.0,
@@ -1645,7 +1688,7 @@ SMODS.Joker{
 	rarity = 2,
 	cost = 7,
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = true,
 	eternal_compat = true,
 	cost_mult = 1.0,
@@ -1720,7 +1763,7 @@ SMODS.Joker{
 	rarity = 3,
 	cost = 8,
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = false,
 	eternal_compat = true,
 	cost_mult = 1.0,
@@ -1728,20 +1771,12 @@ SMODS.Joker{
 		return {vars = {card.ability.extra.money_earned, card.ability.extra.interest} }
 	end,
 	calculate = function(self, card, context)
-		if context.selling_card then
-			card.ability.extra_value = card.ability.extra_value + card.ability.extra.money_earned
-			card:set_cost()
-			ease_dollars(-1 * card.ability.extra.money_earned);
-			card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize("k_val_up"), colour = G.C.MONEY})
-		end
-		if context.end_of_round and context.cardarea == G.jokers and not context.repetition and context.game_over == false and not context.blueprint then
-			local temp_string = tostring(card.ability.extra.interest)
-			local form_decimal = tonumber( (tonumber(string.sub(temp_string, 1, -3)) or 0) .. "." .. string.sub(temp_string, -2) )
-			local new_sell_value = math.ceil((1 + form_decimal) * (card.sell_cost + card.ability.extra_value))
-			card.ability.extra_value = new_sell_value - card.sell_cost
-			card:set_cost()
-			card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize("k_val_up"), colour = G.C.MONEY})
-		end
+        if context.selling_card and not context.repetition and not context.blueprint then
+            card.ability.extra_value = card.ability.extra_value + card.ability.extra.money_earned
+            card:set_cost()
+            ease_dollars(-1 * card.ability.extra.money_earned);
+            card_eval_status_text(card, 'extra', nil, nil, nil, { message = localize("k_val_up"), colour = G.C.MONEY})
+        end
 	end
 }
 
@@ -1777,7 +1812,7 @@ SMODS.Joker{
 	rarity = 4,
 	cost = 20,
 	unlocked = true,
-	discovered = false,
+	discovered = true,
 	blueprint_compat = true,
 	eternal_compat = true,
 	cost_mult = 1.0,
